@@ -1,0 +1,56 @@
+﻿@model IEnumerable<BookList.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<h3>Livros</h3>
+<hr>
+
+<p>
+    <a asp-action="Create" class="btn btn-sm btn-primary">Adicionar</a>
+</p>
+
+<form asp-action="Index" method="get"  >
+    <div class="row" >
+        <div class="col-sm-4">
+            <input type="text" name="SearchString" class="form-control" placeholder="Busca" value="@ViewData["currentFilter"]" />
+        </div>
+        <input type="submit" value="Search" class="btn btn-sm btn-primary" title="Pesquisar" /> 
+        <a asp-action="Index">Listar Todos</a>
+
+
+    </div>
+</form>
+
+<br />
+
+<div class="form-border">
+    <table class="table">
+        <tr>
+            <th>
+                Nome
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <div class="col-sm-4">
+                        @Html.DisplayFor(m => item.Name)
+                    </div>
+                </td>
+                <td>
+                    <div class="col-sm-4">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="glyphicon glyphicon-edit" title="Editar"></a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="glyphicon glyphicon-list-alt" title="Detalhes"></a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="glyphicon glyphicon-trash" title="Excluir"></a>
+                    </div>
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
+
