@@ -10,8 +10,15 @@ namespace BookList.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        
         public string Name { get; set; }
+
+        public string Autor { get; set; }
+
+        public string Editora { get; set; }
+
+        public string Ano { get; set; }
+
 
     }
 }

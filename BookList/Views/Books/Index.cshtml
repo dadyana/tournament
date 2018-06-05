@@ -13,11 +13,11 @@
 </p>
 
 <form asp-action="Index" method="get"  >
-    <div class="row" >
+    <div class="row">
         <div class="col-sm-4">
             <input type="text" name="SearchString" class="form-control" placeholder="Busca" value="@ViewData["currentFilter"]" />
         </div>
-        <input type="submit" value="Search" class="btn btn-sm btn-primary" title="Pesquisar" /> 
+        <input type="submit" value="Buscar" class="btn btn-sm btn-primary" title="Pesquisar" />
         <a asp-action="Index">Listar Todos</a>
 
 
@@ -29,10 +29,9 @@
 <div class="form-border">
     <table class="table">
         <tr>
-            <th>
-                Nome
-            </th>
+            <th colspan="2">Nome</th>
         </tr>
+
         @foreach (var item in Model)
         {
             <tr>
